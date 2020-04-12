@@ -51,7 +51,7 @@ csr_sparse parse_csr_sparse(char *fname) {
   ret.indptr[0] = 0;
   cout << "length of array:" << ret.size << "\n\n";
   
-  outfile << STATIC << TYPE << " G_shape[2] = {" << ret.shape[0] << ", " << ret.shape[1] << "};" << endl;
+  outfile << STATIC << TYPE << " G.nodes = " << ret.shape[0] << ";" << endl;
   for (unsigned int i = 0; i < ret.size; i++ ) {
     reader >> first >> second >> third;
     ret.indptr[first+1]++;
@@ -101,15 +101,15 @@ int main(int argc, char** argv) {
   
   outfile << "\n"; 
 
-  outfile << STATIC << TYPE << " ret_prop[" << G.shape[0]+1 << "] = {0, ";
+  outfile << STATIC << TYPE << " ret_prop[" << G.shape[0]+1 << "] = {-1, ";
   for (unsigned int j = 1; j < G.shape[0] + 1; j++) {
-    outfile << ", 0";
+    outfile << ", -1";
   }
   outfile << "};" << endl;
   
-  outfile << STATIC << TYPE << " ret_tmp[" << G.shape[0]+1 << "] = {0, ";
+  outfile << STATIC << TYPE << " ret_tmp[" << G.shape[0]+1 << "] = {-1, ";
   for (unsigned int j = 1; j < G.shape[0] + 1; j++) {
-    outfile << ", 0";
+    outfile << ", -1";
   }
   outfile << "};" << endl;
 

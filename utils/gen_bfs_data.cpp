@@ -101,13 +101,13 @@ int main(int argc, char** argv) {
   
   outfile << "\n"; 
 
-  outfile << STATIC << TYPE << " ret_prop[" << G.shape[0]+1 << "] = {-1, ";
+  outfile << STATIC << TYPE << " ret_prop[" << G.shape[0]+1 << "] = {0";
   for (unsigned int j = 1; j < G.shape[0] + 1; j++) {
     outfile << ", -1";
   }
   outfile << "};" << endl;
   
-  outfile << STATIC << TYPE << " ret_tmp[" << G.shape[0]+1 << "] = {-1, ";
+  outfile << STATIC << TYPE << " ret_tmp[" << G.shape[0]+1 << "] = {-1";
   for (unsigned int j = 1; j < G.shape[0] + 1; j++) {
     outfile << ", -1";
   }

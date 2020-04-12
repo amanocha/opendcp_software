@@ -51,7 +51,7 @@ csr_sparse parse_csr_sparse(char *fname) {
   ret.indptr[0] = 0;
   cout << "length of array:" << ret.size << "\n\n";
   
-  outfile << STATIC << TYPE << " G.nodes = " << ret.shape[0] << ";" << endl;
+  outfile << STATIC << TYPE << " nodes = " << ret.shape[0] << ";" << endl;
   for (unsigned int i = 0; i < ret.size; i++ ) {
     reader >> first >> second >> third;
     ret.indptr[first+1]++;
@@ -59,7 +59,7 @@ csr_sparse parse_csr_sparse(char *fname) {
     ret.data[i]=(unsigned int) third;
   }
 
-  outfile << STATIC << TYPE << " G.node_array[" << ret.shape[0]+1 << "] = {0, ";
+  outfile << STATIC << TYPE << " node_array[" << ret.shape[0]+1 << "] = {0, ";
   for (unsigned int j =1; j< ret.shape[0]; j++) {
     ret.indptr[j] += ret.indptr[j-1];
     outfile << ret.indptr[j] << ", ";
@@ -67,7 +67,7 @@ csr_sparse parse_csr_sparse(char *fname) {
   ret.indptr[ret.shape[0]] += ret.indptr[ret.shape[0]-1];
   outfile << ret.indptr[ret.shape[0]] + ret.indptr[ret.shape[0]-1] << "};" << endl;
   
-  outfile << STATIC << TYPE << " G.edge_array[" << ret.size << "] = {";
+  outfile << STATIC << TYPE << " edge_array[" << ret.size << "] = {";
   for (int i = 0; i < ret.size-1; i++) {
     outfile << ret.indices[i] << ", ";
   }

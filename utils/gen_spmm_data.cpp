@@ -124,7 +124,7 @@ csc_graph convert_csr_to_csc(csr_graph G, const char* name) {
   for (int n = 1; n < ret.nodes; n++) {
     incoming_edges[n] += incoming_edges[n-1];
   }
-  assert(incoming_edges[ret.nodes-1] == ret.edges);
+  //assert(incoming_edges[ret.nodes-1] == ret.edges);
 
   // finish up the return array
   outfile << STATIC << TYPE << " " << name << "_indptr[" << ret.nodes+1 << "] = {0, ";

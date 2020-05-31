@@ -39,11 +39,11 @@ csr_sparse parse_csr_sparse(char *fname) {
 
   reader >> m >> n >> s;
 
-  cout << "sparse: " << fname << "\nrows: " << m << "\ncolumns: " << n << "\nsize: " << s <<"\n\n";
+  cout << "sparse: " << fname << "\nnodes: " << s << "\nedges: " << n <<"\n\n";
 
-  ret.shape[0] = m;  
-  ret.shape[1] = n;
-  ret.size = s;
+  ret.shape[0] = s;  
+  ret.shape[1] = s;
+  ret.size = n;
   ret.indptr = (unsigned int*) malloc(sizeof(unsigned int) * (ret.shape[0] + 1));
   ret.indices = (unsigned int*) malloc(sizeof(unsigned int) * (ret.size));
   ret.data = (unsigned int*) malloc(sizeof(unsigned int) * (ret.size));

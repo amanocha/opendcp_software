@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include "util.h"
 #include "dcp.h"
-#include "bfs_data_big.h"
+#include "bfs_push.h"
 
 #ifndef NUM_A
     #define NUM_A 1

@@ -160,7 +160,7 @@ int main(int argc, char** argv) {
   //G = parse_csr_graph(graph_fname);
   G = parse_bin_files(graph_fname);
 
-  uint32_t * res = (uint32_t *) malloc(sizeof(uint32_t) * G.nodes);
+  uint32_t * res = (uint32_t *) dec_malloc(sizeof(uint32_t) * G.nodes);
 
   for (int i = 0; i < G.nodes; i++) {
     res[i] = (uint32_t) weight_max;

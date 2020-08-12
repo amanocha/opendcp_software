@@ -1,8 +1,8 @@
 #!/usr/bin/env scala
 import scala.collection.mutable.ArrayBuffer 
 val m = 400 //rgs(0).toInt
-val n = 6400//args(1).toInt
-val approx_nnz = 400//args(2).toInt
+val approx_nnz = m*12//args(2).toInt
+val n = approx_nnz*16//args(1).toInt
 
 val pnnz = approx_nnz.toDouble/(m*n)
 val idx = ArrayBuffer[Int]()
@@ -44,6 +44,6 @@ printVec("uint64_t", "val", d)
 printVec("uint32_t", "idx", idx.toSeq)
 printVec("uint64_t", "x", v)
 printVec("uint32_t", "ptr", p.toSeq)
-//printVec("uint64_t", "verify_data", spmv(p.toSeq, d, idx.toSeq, v).toSeq)
+printVec("uint64_t", "verify_data", spmv(p.toSeq, d, idx.toSeq, v).toSeq)
 println("uint64_t data [" + m + "];")
 

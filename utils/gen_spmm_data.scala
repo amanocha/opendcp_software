@@ -1,10 +1,10 @@
 #!/usr/bin/env scala
 import scala.collection.mutable.ArrayBuffer 
-val m = 300 //rgs(0).toInt
-val n = 3200//args(1).toInt
+val m = 3000 //rgs(0).toInt
+val approx_nnz = 2000//args(2).toInt
+val n = approx_nnz*2//args(1).toInt
 val mB = n
 val nB = m
-val approx_nnz = 400//args(2).toInt
 
 val pnnz = approx_nnz.toDouble/(m*n)
 val idx = ArrayBuffer[Int]()

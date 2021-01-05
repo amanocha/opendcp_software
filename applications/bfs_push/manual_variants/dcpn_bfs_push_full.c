@@ -109,7 +109,10 @@ void _kernel_(uint32_t id, uint32_t core_num){
 
           hop++;
 
-          swap(in_wl, out_wl);
+          //swap(in_wl, out_wl);
+          uint32_t* tmp = in_wl;
+          in_wl = out_wl;
+          out_wl = tmp;
 
           // barrier 1
           ATOMIC_OP(amo_cnt, 1, add, w);

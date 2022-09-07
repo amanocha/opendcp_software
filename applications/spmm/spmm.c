@@ -1,6 +1,6 @@
-
 #include <stdio.h>
-#include "spmm_data_small.h"
+#include "../../datasets/spmm_data_big.h"
+#include "DECADES/DECADES.h"
 
 void _kernel_(uint32_t A_nrows, uint32_t B_ncols, uint32_t* spa, uint32_t* tmp_C_indices, uint32_t id, uint32_t core_num) {
 
@@ -11,11 +11,11 @@ void _kernel_(uint32_t A_nrows, uint32_t B_ncols, uint32_t* spa, uint32_t* tmp_C
     uint32_t B_start = B_indptr[j];
     uint32_t B_end = B_indptr[j+1];
     for(uint32_t k = B_start; k < B_end; k++) {
-      uint32_t B_idx = B_indices[k];
+      uint32_t B_idx = B_indices[k]; // irregular
       uint32_t B = B_data[k];
 
       // find corresponding column in A for entry and iterate through each entry in that column
-      uint32_t A_start = A_indptr[B_idx];
+      uint32_t A_start = A_indptr[B_idx]; // irregular
       uint32_t A_end = A_indptr[B_idx+1];
       for(uint32_t m = A_start; m < A_end; m++) {
         uint32_t A_idx = A_indices[m];
@@ -55,6 +55,7 @@ uint32_t B_ncols = B_shape[1];
   //ATOMIC_OP(sync0, 1, add, w);
   //while(sync0 != core_num);
 
+  printf("starting kernel\n");
   _kernel_(A_nrows, B_ncols, spa, tmp_C_indices, id, core_num);
 /*
   ATOMIC_OP(sync1, 1, add, w);

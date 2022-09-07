@@ -65,19 +65,19 @@ csc_graph convert_csr_to_csc(csr_graph G) {
       /*cout << "start: " << start << endl;
       cout << "end: " << end << endl;
       cout << "node: " << n << endl;*/
-      assert(0);
+      //assert(0);
     }
     int previous = -1;
     for (int e = start; e < end; e++) {
       if (e > G.edges) {
-	assert(0);
+	//assert(0);
       }
       const int edge_index = G.edge_array[e];
       if (edge_index >= ret.nodes) {
 	cout << edge_index << " " << ret.nodes << endl;
-	assert(0);
+	//assert(0);
       }
-      assert(edge_index < ret.nodes);
+      //assert(edge_index < ret.nodes);
       incoming_edges[edge_index]++;
       total_edges++;
 
@@ -99,7 +99,7 @@ csc_graph convert_csr_to_csc(csr_graph G) {
     incoming_edges[n] += incoming_edges[n-1];
   }
   cout << incoming_edges[ret.nodes-1] << " " << ret.edges << endl;
-  assert(incoming_edges[ret.nodes-1] == ret.edges);
+  //assert(incoming_edges[ret.nodes-1] == ret.edges);
 
   // finish up the return array
   ret.node_array[0] = 0;
@@ -132,9 +132,9 @@ csc_graph convert_csr_to_csc(csr_graph G) {
 
   //cout << "Progress3" << endl;
 
-  for (int e = 0; e < ret.edges; e++) {
+  /*for (int e = 0; e < ret.edges; e++) {
     assert(ret.edge_array[e] != -1);
-  }
+  }*/
 
   //cout << "Progress4" << endl;
 

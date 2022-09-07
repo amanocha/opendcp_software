@@ -8,7 +8,7 @@
 #include <fstream>
 #include <chrono>
 
-#define OUTPUT_RET
+//#define OUTPUT_RET
 #define SEED 13
 using namespace std;
 
@@ -19,7 +19,7 @@ struct csr_sparse {
   unsigned int *shape;
   unsigned int *indptr;
   unsigned int *indices;
-  int  *data;
+  double       *data;
 };
 
 
@@ -44,7 +44,7 @@ csr_sparse parse_csr_sparse(char *fname) {
   ret.size = s;
   ret.indptr = (unsigned int*) malloc(sizeof(unsigned int) * (ret.shape[0] + 1));
   ret.indices = (unsigned int*) malloc(sizeof(unsigned int) * (ret.size));
-  ret.data = (int*) malloc(sizeof(int) * (ret.size));
+  ret.data = (double*) malloc(sizeof(double) * (ret.size));
   
   ret.indptr[0] = 0;
   cout << "length of array:" << ret.size << "\n\n";
@@ -54,7 +54,7 @@ csr_sparse parse_csr_sparse(char *fname) {
     reader >> first >> second >> third;
     ret.indptr[first+1]++;
     ret.indices[i] = second;
-    ret.data[i]=(int)third;
+    ret.data[i]=third;
   }
   for (unsigned int j =1; j< ret.shape[0]+1; j++) {
     ret.indptr[j] += ret.indptr[j-1];
@@ -69,23 +69,20 @@ csr_sparse parse_csr_sparse(char *fname) {
   return ret;
 }
 
-
-void _kernel_(csr_sparse G, int * M, csr_sparse result, int * index, int tid, int num_threads) {
+void _kernel_(csr_sparse G, volatile double * M, csr_sparse result, int tid, int num_threads) {
   int col = 0;
   unsigned int pointer = 0;
-  int outerloop = 0;
-  outerloop++;
-  int i = DECADES_FETCH_ADD(index, 1);
-  while (i < result.shape[0]) {
-    int offset = G.indptr[i+1]-G.indptr[i];
+  const int outer_iterations = result.shape[0];
+  const int shape_1 = G.shape[1];
+  for (int i = tid; i < outer_iterations; i += num_threads) {
+    const int ind_base = G.indptr[i];
+    int offset = G.indptr[i+1]-ind_base;
     for (int j = 0; j < offset; j ++) {
-      pointer = G.indptr[i] + j;
+      pointer = ind_base + j;
       col = G.indices[pointer];
-      int sparse_data = G.data[pointer];
-      int dense_data = M[i*G.shape[1]+col];
-      compute_exclusive_store(result.data + pointer, sparse_data*dense_data);     
+      compute_exclusive_store((int*)(result.data + pointer),  (int) (G.data[pointer] * M[i*shape_1+col]));
+      compute_exclusive_store((int*)(result.indices + pointer), (int) col);
     }
-    i = DECADES_FETCH_ADD(index,1);
   }
 }
 
@@ -107,29 +104,35 @@ int main(int argc, char** argv) {
 
   //M = parse_dense_matrix(dense_fname);
   srand(SEED);
-  int* M = (int*) malloc(sizeof(int) * m * n) ;
+  double* M = (double*) malloc(sizeof(double) * m * n) ;
   
   for (unsigned int i = 0; i < m; i++) {
     for (unsigned int j = 0; j < n; j++) {
-      M[i*n + j] = ((int) rand() / (RAND_MAX));
+      M[i*n + j] = ((double) rand() / (RAND_MAX));
     }
   }
-
   
   csr_sparse result;
   result.shape = G.shape;  
   result.size = G.size;
   result.indptr = G.indptr;
   result.indices = (unsigned int*) malloc(sizeof(unsigned int) * (result.size));
-  result.data = (int*) malloc(sizeof(int) * (result.size));
+  result.data = (double*) malloc(sizeof(double) * (result.size));
   result.indptr[0] = 0;
-
 
   printf("\n\nstarting kernel\n");
   auto start = chrono::system_clock::now();
 
-  int index = 0;
-  _kernel_(G, M, result, &index, 0, 1);
+  _kernel_(G, M, result, 0, 1);
+
+  /*
+  double res = 0;
+  for (int i = 0; i < result.size; i ++){
+    res += (result.data[i]*i);
+      }
+  
+  cout << "RESULT HASH: " << res << "\n";
+  */
 
   printf("\nending kernel");
   auto end = std::chrono::system_clock::now();
@@ -159,8 +162,7 @@ int main(int argc, char** argv) {
     outfile3 << result.data[i] << "\n";
   }
   outfile3.close();
-  
-
   #endif
+
   delete M;
 }

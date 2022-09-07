@@ -1,7 +1,13 @@
-#include "dcp_API.h"
-#include "spmm_data_synthetic.h"
-#include "spmm_data_small.h"
-#include "spmm_data_large.h"
+//#include "dcp_API.h"
+#include "DECADES/DECADES.h"
+#include "stdio.h"
+#include "stdlib.h"
+#include "assert.h"
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <chrono>
+#include "../../datasets/spmm_data_sq_big.h"
 
 void _kernel_(uint32_t A_nrows, uint32_t B_ncols, uint32_t* spa, uint32_t* tmp_C_indices, uint32_t* tmp_C_data, uint32_t id, uint32_t core_num) {
 
@@ -37,25 +43,27 @@ void _kernel_(uint32_t A_nrows, uint32_t B_ncols, uint32_t* spa, uint32_t* tmp_C
         if(tmp_spa) {
           tmp_C_indptr++;
           tmp_C_indices[j*A_nrows + i] = i;
-          tmp_C_data[j*A_nrows + i] = tmp_spa;
+          //tmp_C_data[j*A_nrows + i] = tmp_spa;
           tmp_spa = 0;
         }
       }
       spa[j*A_nrows + i] = tmp_spa;
     }
-    C_indptr[j+1] = tmp_C_indptr;
+    //C_indptr[j+1] = tmp_C_indptr;
   }  
 }
 
 int main(int argc, char ** argv) {
-  printf("Decoupling SpMM\n");
+  printf("Doall SpMM\n");
 
   uint32_t A_nrows = A_shape[0];
   uint32_t B_ncols = B_shape[1];
   uint32_t SPA_SIZE = A_nrows*B_ncols;
-  uint32_t spa[SPA_SIZE];
-  uint32_t tmp_C_indices[SPA_SIZE];
-  uint32_t tmp_C_data[SPA_SIZE]; 
+  uint32_t* spa = new uint32_t[SPA_SIZE];
+  uint32_t* tmp_C_indices = new uint32_t[SPA_SIZE];
+  uint32_t* tmp_C_data = new uint32_t[SPA_SIZE]; 
+  uint32_t* C_indptr = new uint32_t[8000];
+
   for(uint32_t j = 0; j < SPA_SIZE; j++) {
     spa[j] = 0;
     tmp_C_indices[j] = 0;
@@ -66,7 +74,7 @@ int main(int argc, char ** argv) {
   
   // optional if CSC output is desired 
   //if (id == 0) {
-    uint32_t C_idx = 0;
+  /*  uint32_t C_idx = 0;
     for (int i = 0; i < SPA_SIZE; i++) {
       if (tmp_C_data[i]) {
         C_indices[C_idx] = tmp_C_indices[i];
@@ -74,6 +82,7 @@ int main(int argc, char ** argv) {
         C_idx++;
       }
     }
+  */
   //}
 
   return 0;

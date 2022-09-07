@@ -1,0 +1,731 @@
+/home/aninda/pythia/bin/../ mosaichome 
+
+[SIM] ----Reading CONFIGURATION file---------
+File: /home/aninda/pythia/sim/config/sim_opendcp.txt
+(31) num_accels: 8
+(32) num_IS: 8
+(29) technology_node: 22
+(30) chip_freq: 2000
+(52) use_l2: 0
+(5) ideal_cache: 0
+(6) cache_size: 65536
+(11) cache_latency: 30
+(12) cache_assoc: 8
+(13) cache_linesize: 64
+(7) cache_load_ports: 8
+(8) cache_store_ports: 8
+(66) is_llc: 1
+(26) SimpleDRAM: 1
+(27) dram_bw: 68
+(28) dram_latency: 300
+(9) mem_read_ports: 4
+(10) mem_write_ports: 4
+(19) SAB_size: 128
+(21) SVB_size: 128
+(16) commBuff_size: 64
+(17) commQ_size: 512
+(18) term_buffer_size: 128
+(20) desc_min_latency: 25
+(33) mem_chunk_size: 50
+------------------------------------
+
+[SIM] NumCores is: 2
+
+[SIM] ----Reading CONFIGURATION file---------
+File: /home/aninda/pythia/sim/config/core_opendcp.txt
+(0) lsq_size: -1
+(14) window_size: 1
+(15) issueWidth: 1
+(1) cf_mode: 0
+(2) mem_speculate: 0
+(3) mem_forward: 0
+(4) max_active_contexts_BB: -1
+(22) branch_predictor: 5
+(23) misprediction_penalty: 2
+(72) bht_size: 1024
+(73) gshare_global_hist: 10
+(5) ideal_cache: 0
+(6) cache_size: 8192
+(11) cache_latency: 2
+(12) cache_assoc: 8
+(13) cache_linesize: 64
+(7) cache_load_ports: 8
+(8) cache_store_ports: 8
+(24) prefetch_distance: 1
+(25) num_prefetched_lines: 2
+(67) is_l1: 1
+(52) use_l2: 0
+(53) l2_ideal_cache: 0
+(55) l2_cache_size: 32768
+(54) l2_cache_latency: 30
+(56) l2_cache_assoc: 8
+(57) l2_cache_linesize: 64
+(58) l2_cache_load_ports: 8
+(59) l2_cache_store_ports: 8
+(60) l2_prefetch_distance: 1
+(61) l2_num_prefetched_lines: 2
+(9) mem_read_ports: 4
+(10) mem_write_ports: 4
+------------------------------------
+
+[SIM] Start reading the Data Dependency Graph (/home/aninda/opendcp_software/applications/ewsd/decades_decoupled_implicit/output_compute_0/graphOutput.txt)...
+[SIM] ...Finished reading the Data Dependency Graph!
+
+[SIM] Start reading the Memory trace (/home/aninda/opendcp_software/applications/ewsd/decades_decoupled_implicit/output_compute_0/mem.txt) | size = 33 KBytes
+[SIM] Start reading the Control-Flow trace (/home/aninda/opendcp_software/applications/ewsd/decades_decoupled_implicit/output_compute_0/ctrl.txt) | size = 15 KBytes
+[SIM] ...Finished reading the Control-Flow trace! - Total contexts: 2567
+
+[SIM] Start reading the Accelerator Invokation trace (/home/aninda/opendcp_software/applications/ewsd/decades_decoupled_implicit/output_compute_0/acc.txt) | size = 0 KBytes
+[SIM] ...Finished reading the Accelerator trace!
+
+Total Num Instructions: 23815
+
+[SIM] ----Reading CONFIGURATION file---------
+File: /home/aninda/pythia/sim/config/core_opendcp.txt
+(0) lsq_size: -1
+(14) window_size: 1
+(15) issueWidth: 1
+(1) cf_mode: 0
+(2) mem_speculate: 0
+(3) mem_forward: 0
+(4) max_active_contexts_BB: -1
+(22) branch_predictor: 5
+(23) misprediction_penalty: 2
+(72) bht_size: 1024
+(73) gshare_global_hist: 10
+(5) ideal_cache: 0
+(6) cache_size: 8192
+(11) cache_latency: 2
+(12) cache_assoc: 8
+(13) cache_linesize: 64
+(7) cache_load_ports: 8
+(8) cache_store_ports: 8
+(24) prefetch_distance: 1
+(25) num_prefetched_lines: 2
+(67) is_l1: 1
+(52) use_l2: 0
+(53) l2_ideal_cache: 0
+(55) l2_cache_size: 32768
+(54) l2_cache_latency: 30
+(56) l2_cache_assoc: 8
+(57) l2_cache_linesize: 64
+(58) l2_cache_load_ports: 8
+(59) l2_cache_store_ports: 8
+(60) l2_prefetch_distance: 1
+(61) l2_num_prefetched_lines: 2
+(9) mem_read_ports: 4
+(10) mem_write_ports: 4
+------------------------------------
+
+[SIM] Start reading the Data Dependency Graph (/home/aninda/opendcp_software/applications/ewsd/decades_decoupled_implicit/output_supply_1/graphOutput.txt)...
+[SIM] ...Finished reading the Data Dependency Graph!
+
+[SIM] Start reading the Memory trace (/home/aninda/opendcp_software/applications/ewsd/decades_decoupled_implicit/output_supply_1/mem.txt) | size = 73 KBytes
+[SIM] Start reading the Control-Flow trace (/home/aninda/opendcp_software/applications/ewsd/decades_decoupled_implicit/output_supply_1/ctrl.txt) | size = 15 KBytes
+[SIM] ...Finished reading the Control-Flow trace! - Total contexts: 2567
+
+[SIM] Start reading the Accelerator Invokation trace (/home/aninda/opendcp_software/applications/ewsd/decades_decoupled_implicit/output_supply_1/acc.txt) | size = 0 KBytes
+[SIM] ...Finished reading the Accelerator trace!
+
+Total Num Instructions: 49541
+[SIM] ------- Starting Simulation!!! ------------------------
+[SIM] ...Finished reading the Memory trace!
+
+[SIM] ...Finished reading the Memory trace!
+
+[SIM] ------- End of Simulation!!! ------------------------
+
+------------- Final MosaicSim Core 0 Stats --------------
+IPC : 0.137096
+Average BW: 0 GB/s 
+Average Bandwidth (PBC): 0 GB/s 
+Average DRAM Read Latency (cycles): -nan
+Average DRAM Write Latency (cycles): -nan
+L1 Miss Rate: 9.62963%
+Branch misprediction rate: -nan%
+ACCELERATOR : 0
+ATOMIC_ADD : 0
+ATOMIC_CAS : 0
+ATOMIC_FADD : 0
+ATOMIC_MIN : 0
+BARRIER : 0
+BS_DONE : 0
+BS_VECTOR_INC : 0
+BS_WAKE : 0
+CALL_BS : 0
+CAST : 4819
+CORE_INTERRUPT : 0
+FP_ADDSUB : 0
+FP_DIV : 0
+FP_MULT : 1080
+FP_REM : 0
+GEP : 2160
+INVALID : 0
+I_ADDSUB : 3150
+I_DIV : 0
+I_MULT : 0
+I_REM : 0
+LD : 0
+LD_PROD : 0
+LLAMA : 0
+LOGICAL : 2071
+PHI : 1575
+RECV : 4233
+SEND : 0
+ST : 2160
+STADDR : 0
+STVAL : 0
+TERMINATOR : 2567
+TRM_ATOMIC_CAS : 0
+TRM_ATOMIC_FADD : 0
+TRM_ATOMIC_MIN : 0
+bpred_correct_preds : 0
+bpred_mispredictions : 0
+bytes_read : 0
+bytes_write : 8640
+cache_access : 0
+cache_evicts : 79
+cache_pending : 0
+comp_issue_success : 17422
+comp_issue_try : 0
+contexts : 2567
+cycles : 162222
+dram_accesses : 0
+dram_accesses_back_invalidations : 0
+dram_accesses_bypass : 0
+dram_accesses_bypass_evicts : 0
+dram_accesses_bypass_forwarded_evicts : 0
+dram_accesses_l1_bypass : 0
+dram_accesses_l1_bypass_evicts : 0
+dram_accesses_l1_bypass_forwarded_evicts : 0
+dram_accesses_l2_bypass : 0
+dram_accesses_l2_bypass_evicts : 0
+dram_accesses_l2_bypass_forwarded_evicts : 0
+dram_accesses_l3 : 0
+dram_accesses_l3_evicts : 0
+dram_accesses_l3_forwarded_evicts : 0
+dram_accesses_rmw_evicts : 0
+dram_bytes_accessed : 0
+dram_reads_loads : 0
+dram_reads_stores : 0
+dram_total_read_latency : 0
+dram_total_write_latency : 0
+dram_writes_evictions : 0
+forwarded : 0
+l1_accesses : 2160
+l1_cache_invalidations : 0
+l1_cache_invalidations_clean : 0
+l1_cache_invalidations_dirty : 0
+l1_cache_invalidations_full : 0
+l1_cache_invalidations_full_clean : 0
+l1_cache_invalidations_full_dirty : 0
+l1_cache_invalidations_merged : 0
+l1_cache_invalidations_merged_clean : 0
+l1_cache_invalidations_merged_dirty : 0
+l1_clean_evicts : 0
+l1_dirty_evicts : 79
+l1_eviction_hits : 0
+l1_eviction_misses : 0
+l1_evictions : 0
+l1_evicts : 79
+l1_hits : 2156
+l1_load_hits : 0
+l1_load_misses : 0
+l1_loads : 0
+l1_misses : 4
+l1_prefetch_hits : 3713
+l1_prefetch_misses : 591
+l1_prefetches : 4304
+l1_primary_load_misses : 206
+l1_primary_misses : 208
+l1_primary_store_misses : 2
+l1_rmw_hits : 0
+l1_rmw_misses : 0
+l1_rmw_misses_full : 0
+l1_rmw_misses_merged : 0
+l1_rmws : 0
+l1_secondary_load_misses : 385
+l1_secondary_misses : 387
+l1_secondary_store_misses : 2
+l1_store_hits : 2156
+l1_store_misses : 4
+l1_stores : 2160
+l1_total_accesses : 6464
+l2_accesses : 0
+l2_cache_invalidations : 0
+l2_cache_invalidations_clean : 0
+l2_cache_invalidations_dirty : 0
+l2_cache_invalidations_full : 0
+l2_cache_invalidations_full_clean : 0
+l2_cache_invalidations_full_dirty : 0
+l2_cache_invalidations_merged : 0
+l2_cache_invalidations_merged_clean : 0
+l2_cache_invalidations_merged_dirty : 0
+l2_clean_evicts : 0
+l2_dirty_evicts : 0
+l2_eviction_hits : 0
+l2_eviction_misses : 0
+l2_evictions : 0
+l2_evicts : 0
+l2_hits : 0
+l2_load_hits : 0
+l2_load_misses : 0
+l2_loads : 0
+l2_misses : 0
+l2_prefetch_hits : 0
+l2_prefetch_misses : 0
+l2_prefetches : 0
+l2_rmw_hits : 0
+l2_rmw_misses : 0
+l2_rmw_misses_full : 0
+l2_rmw_misses_merged : 0
+l2_rmws : 0
+l2_store_hits : 0
+l2_store_misses : 0
+l2_stores : 0
+l2_total_accesses : 0
+l3_accesses : 0
+l3_clean_evicts : 0
+l3_dirty_evicts : 0
+l3_eviction_hits : 0
+l3_eviction_misses : 0
+l3_evictions : 0
+l3_evicts : 0
+l3_hits : 0
+l3_load_hits : 0
+l3_load_misses : 0
+l3_loads : 0
+l3_misses : 0
+l3_prefetch_hits : 0
+l3_prefetch_misses : 0
+l3_prefetches : 0
+l3_rmw_hits : 0
+l3_rmw_misses : 0
+l3_rmw_misses_full : 0
+l3_rmw_misses_merged : 0
+l3_rmws : 0
+l3_store_hits : 0
+l3_store_misses : 0
+l3_stores : 0
+l3_total_accesses : 0
+ld_prod_issue_success : 0
+ld_prod_issue_try : 0
+load_issue_success : 0
+load_issue_try : 0
+lsq_insert_fail : 0
+lsq_insert_success : 0
+misspeculated : 0
+recv_issue_success : 4233
+recv_issue_try : 0
+send_issue_success : 0
+send_issue_try : 0
+speculated : 0
+speculatively_forwarded : 0
+staddr_issue_success : 0
+staddr_issue_try : 0
+store_issue_success : 2160
+store_issue_try : 0
+stval_issue_success : 0
+stval_issue_try : 0
+total_instructions : 22240
+total_energy : 2.59743e-07 Joules
+avg_power : 0.00320232 Watts
+------------- Final MosaicSim Core 1 Stats --------------
+IPC : 0.148876
+Average BW: 0 GB/s 
+Average Bandwidth (PBC): 0 GB/s 
+Average DRAM Read Latency (cycles): -nan
+Average DRAM Write Latency (cycles): -nan
+L1 Miss Rate: 27.2706%
+Branch misprediction rate: -nan%
+ACCELERATOR : 0
+ATOMIC_ADD : 0
+ATOMIC_CAS : 0
+ATOMIC_FADD : 0
+ATOMIC_MIN : 0
+BARRIER : 0
+BS_DONE : 0
+BS_VECTOR_INC : 0
+BS_WAKE : 0
+CALL_BS : 0
+CAST : 3740
+CORE_INTERRUPT : 0
+FP_ADDSUB : 0
+FP_DIV : 0
+FP_MULT : 0
+FP_REM : 0
+GEP : 4238
+INVALID : 6
+I_ADDSUB : 4725
+I_DIV : 0
+I_MULT : 494
+I_REM : 0
+LD : 2077
+LD_PROD : 2162
+LLAMA : 0
+LOGICAL : 2071
+PHI : 1575
+RECV : 0
+SEND : 2071
+ST : 0
+STADDR : 0
+STVAL : 0
+TERMINATOR : 2567
+TRM_ATOMIC_CAS : 0
+TRM_ATOMIC_FADD : 0
+TRM_ATOMIC_MIN : 0
+bpred_correct_preds : 0
+bpred_mispredictions : 0
+bytes_read : 16956
+bytes_write : 0
+cache_access : 0
+cache_evicts : 1028
+cache_pending : 0
+comp_issue_success : 19416
+comp_issue_try : 0
+contexts : 2567
+cycles : 162222
+dram_accesses : 0
+dram_accesses_back_invalidations : 0
+dram_accesses_bypass : 0
+dram_accesses_bypass_evicts : 0
+dram_accesses_bypass_forwarded_evicts : 0
+dram_accesses_l1_bypass : 0
+dram_accesses_l1_bypass_evicts : 0
+dram_accesses_l1_bypass_forwarded_evicts : 0
+dram_accesses_l2_bypass : 0
+dram_accesses_l2_bypass_evicts : 0
+dram_accesses_l2_bypass_forwarded_evicts : 0
+dram_accesses_l3 : 0
+dram_accesses_l3_evicts : 0
+dram_accesses_l3_forwarded_evicts : 0
+dram_accesses_rmw_evicts : 0
+dram_bytes_accessed : 0
+dram_reads_loads : 0
+dram_reads_stores : 0
+dram_total_read_latency : 0
+dram_total_write_latency : 0
+dram_writes_evictions : 0
+forwarded : 0
+l1_accesses : 4239
+l1_cache_invalidations : 0
+l1_cache_invalidations_clean : 0
+l1_cache_invalidations_dirty : 0
+l1_cache_invalidations_full : 0
+l1_cache_invalidations_full_clean : 0
+l1_cache_invalidations_full_dirty : 0
+l1_cache_invalidations_merged : 0
+l1_cache_invalidations_merged_clean : 0
+l1_cache_invalidations_merged_dirty : 0
+l1_clean_evicts : 1028
+l1_dirty_evicts : 0
+l1_eviction_hits : 0
+l1_eviction_misses : 0
+l1_evictions : 0
+l1_evicts : 1028
+l1_hits : 3151
+l1_load_hits : 3151
+l1_load_misses : 1088
+l1_loads : 4239
+l1_misses : 1088
+l1_prefetch_hits : 4582
+l1_prefetch_misses : 706
+l1_prefetches : 5288
+l1_primary_load_misses : 1156
+l1_primary_misses : 1156
+l1_primary_store_misses : 0
+l1_rmw_hits : 0
+l1_rmw_misses : 0
+l1_rmw_misses_full : 0
+l1_rmw_misses_merged : 0
+l1_rmws : 0
+l1_secondary_load_misses : 638
+l1_secondary_misses : 638
+l1_secondary_store_misses : 0
+l1_store_hits : 0
+l1_store_misses : 0
+l1_stores : 0
+l1_total_accesses : 9527
+l2_accesses : 0
+l2_cache_invalidations : 0
+l2_cache_invalidations_clean : 0
+l2_cache_invalidations_dirty : 0
+l2_cache_invalidations_full : 0
+l2_cache_invalidations_full_clean : 0
+l2_cache_invalidations_full_dirty : 0
+l2_cache_invalidations_merged : 0
+l2_cache_invalidations_merged_clean : 0
+l2_cache_invalidations_merged_dirty : 0
+l2_clean_evicts : 0
+l2_dirty_evicts : 0
+l2_eviction_hits : 0
+l2_eviction_misses : 0
+l2_evictions : 0
+l2_evicts : 0
+l2_hits : 0
+l2_load_hits : 0
+l2_load_misses : 0
+l2_loads : 0
+l2_misses : 0
+l2_prefetch_hits : 0
+l2_prefetch_misses : 0
+l2_prefetches : 0
+l2_rmw_hits : 0
+l2_rmw_misses : 0
+l2_rmw_misses_full : 0
+l2_rmw_misses_merged : 0
+l2_rmws : 0
+l2_store_hits : 0
+l2_store_misses : 0
+l2_stores : 0
+l2_total_accesses : 0
+l3_accesses : 0
+l3_clean_evicts : 0
+l3_dirty_evicts : 0
+l3_eviction_hits : 0
+l3_eviction_misses : 0
+l3_evictions : 0
+l3_evicts : 0
+l3_hits : 0
+l3_load_hits : 0
+l3_load_misses : 0
+l3_loads : 0
+l3_misses : 0
+l3_prefetch_hits : 0
+l3_prefetch_misses : 0
+l3_prefetches : 0
+l3_rmw_hits : 0
+l3_rmw_misses : 0
+l3_rmw_misses_full : 0
+l3_rmw_misses_merged : 0
+l3_rmws : 0
+l3_store_hits : 0
+l3_store_misses : 0
+l3_stores : 0
+l3_total_accesses : 0
+ld_prod_issue_success : 2162
+ld_prod_issue_try : 0
+load_issue_success : 2077
+load_issue_try : 0
+lsq_insert_fail : 0
+lsq_insert_success : 0
+misspeculated : 0
+recv_issue_success : 0
+recv_issue_try : 0
+send_issue_success : 2071
+send_issue_try : 0
+speculated : 0
+speculatively_forwarded : 0
+staddr_issue_success : 0
+staddr_issue_try : 0
+store_issue_success : 0
+store_issue_try : 0
+stval_issue_success : 0
+stval_issue_try : 0
+total_instructions : 24151
+total_energy : 2.68709e-07 Joules
+avg_power : 0.00331285 Watts
+
+----------------GLOBAL STATS--------------
+IPC : 0.285972
+Average BW: 1.0944 GB/s 
+Average Bandwidth (PBC): 1.0944 GB/s 
+Average DRAM Read Latency (cycles): 299.78
+Average DRAM Write Latency (cycles): 300
+L1 Miss Rate: 21.3158%
+L2 Miss Rate: 100%
+Branch misprediction rate: 9.12603%
+ACCELERATOR : 0
+ATOMIC_ADD : 0
+ATOMIC_CAS : 0
+ATOMIC_FADD : 0
+ATOMIC_MIN : 0
+BARRIER : 0
+BS_DONE : 0
+BS_VECTOR_INC : 0
+BS_WAKE : 0
+CALL_BS : 0
+CAST : 8559
+CORE_INTERRUPT : 0
+FP_ADDSUB : 0
+FP_DIV : 0
+FP_MULT : 1080
+FP_REM : 0
+GEP : 6398
+INVALID : 6
+I_ADDSUB : 7875
+I_DIV : 0
+I_MULT : 494
+I_REM : 0
+LD : 2077
+LD_PROD : 2162
+LLAMA : 0
+LOGICAL : 4142
+PHI : 3150
+RECV : 4233
+SEND : 2071
+ST : 2160
+STADDR : 0
+STVAL : 0
+TERMINATOR : 5134
+TRM_ATOMIC_CAS : 0
+TRM_ATOMIC_FADD : 0
+TRM_ATOMIC_MIN : 0
+bpred_correct_preds : 3764
+bpred_mispredictions : 378
+bytes_read : 16956
+bytes_write : 8640
+cache_access : 17434
+cache_evicts : 1515
+cache_pending : 0
+comp_issue_success : 36838
+comp_issue_try : 0
+contexts : 5134
+cycles : 162222
+dram_accesses : 1387
+dram_accesses_back_invalidations : 0
+dram_accesses_bypass : 0
+dram_accesses_bypass_evicts : 0
+dram_accesses_bypass_forwarded_evicts : 0
+dram_accesses_l1_bypass : 0
+dram_accesses_l1_bypass_evicts : 0
+dram_accesses_l1_bypass_forwarded_evicts : 0
+dram_accesses_l2_bypass : 0
+dram_accesses_l2_bypass_evicts : 0
+dram_accesses_l2_bypass_forwarded_evicts : 0
+dram_accesses_l3 : 1361
+dram_accesses_l3_evicts : 0
+dram_accesses_l3_forwarded_evicts : 26
+dram_accesses_rmw_evicts : 0
+dram_bytes_accessed : 88768
+dram_reads_loads : 1359
+dram_reads_stores : 2
+dram_total_read_latency : 408000
+dram_total_write_latency : 7800
+dram_writes_evictions : 26
+forwarded : 0
+l1_accesses : 6399
+l1_cache_invalidations : 0
+l1_cache_invalidations_clean : 0
+l1_cache_invalidations_dirty : 0
+l1_cache_invalidations_full : 0
+l1_cache_invalidations_full_clean : 0
+l1_cache_invalidations_full_dirty : 0
+l1_cache_invalidations_merged : 0
+l1_cache_invalidations_merged_clean : 0
+l1_cache_invalidations_merged_dirty : 0
+l1_clean_evicts : 1028
+l1_dirty_evicts : 79
+l1_eviction_hits : 0
+l1_eviction_misses : 0
+l1_evictions : 0
+l1_evicts : 1107
+l1_hits : 5307
+l1_load_hits : 3151
+l1_load_misses : 1088
+l1_loads : 4239
+l1_misses : 1092
+l1_prefetch_hits : 8295
+l1_prefetch_misses : 1297
+l1_prefetches : 9592
+l1_primary_load_misses : 1362
+l1_primary_misses : 1364
+l1_primary_store_misses : 2
+l1_rmw_hits : 0
+l1_rmw_misses : 0
+l1_rmw_misses_full : 0
+l1_rmw_misses_merged : 0
+l1_rmws : 0
+l1_secondary_load_misses : 1023
+l1_secondary_misses : 1025
+l1_secondary_store_misses : 2
+l1_store_hits : 2156
+l1_store_misses : 4
+l1_stores : 2160
+l1_total_accesses : 15991
+l2_accesses : 947
+l2_cache_invalidations : 0
+l2_cache_invalidations_clean : 0
+l2_cache_invalidations_dirty : 0
+l2_cache_invalidations_full : 0
+l2_cache_invalidations_full_clean : 0
+l2_cache_invalidations_full_dirty : 0
+l2_cache_invalidations_merged : 0
+l2_cache_invalidations_merged_clean : 0
+l2_cache_invalidations_merged_dirty : 0
+l2_clean_evicts : 408
+l2_dirty_evicts : 0
+l2_eviction_hits : 0
+l2_eviction_misses : 26
+l2_evictions : 26
+l2_evicts : 408
+l2_hits : 0
+l2_load_hits : 0
+l2_load_misses : 919
+l2_loads : 919
+l2_misses : 947
+l2_prefetch_hits : 3
+l2_prefetch_misses : 440
+l2_prefetches : 443
+l2_rmw_hits : 0
+l2_rmw_misses : 0
+l2_rmw_misses_full : 0
+l2_rmw_misses_merged : 0
+l2_rmws : 0
+l2_store_hits : 0
+l2_store_misses : 28
+l2_stores : 28
+l2_total_accesses : 1390
+l3_accesses : 0
+l3_clean_evicts : 0
+l3_dirty_evicts : 0
+l3_eviction_hits : 0
+l3_eviction_misses : 0
+l3_evictions : 0
+l3_evicts : 0
+l3_hits : 0
+l3_load_hits : 0
+l3_load_misses : 0
+l3_loads : 0
+l3_misses : 0
+l3_prefetch_hits : 0
+l3_prefetch_misses : 0
+l3_prefetches : 0
+l3_rmw_hits : 0
+l3_rmw_misses : 0
+l3_rmw_misses_full : 0
+l3_rmw_misses_merged : 0
+l3_rmws : 0
+l3_store_hits : 0
+l3_store_misses : 0
+l3_stores : 0
+l3_total_accesses : 0
+ld_prod_issue_success : 2162
+ld_prod_issue_try : 0
+load_issue_success : 2077
+load_issue_try : 0
+lsq_insert_fail : 0
+lsq_insert_success : 0
+misspeculated : 0
+recv_issue_success : 4233
+recv_issue_try : 0
+send_issue_success : 2071
+send_issue_try : 0
+speculated : 0
+speculatively_forwarded : 0
+staddr_issue_success : 0
+staddr_issue_try : 0
+store_issue_success : 2160
+store_issue_try : 0
+stval_issue_success : 0
+stval_issue_try : 0
+total_instructions : 46391
+Total GFLOPs : 1.08e-06
+-------All (2) cores energy (J) : 5.28452e-07
+-------L3_energy (J) : 0
+-------DRAM_energy (J) : 1.53266e-05
+-------Acc_energy (J) : 0
+global_energy : 1.5855e-05 Joules
+global_avg_power : 0.195473 Watts
+Total Simulation Time: 302 ms 
+Average Global Simulation Speed: 164043 Instructions per sec 

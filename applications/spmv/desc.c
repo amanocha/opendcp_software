@@ -7,8 +7,7 @@
 #include <string>
 #include <fstream>
 #include <chrono>
-
-#include "../../datasets/spmv_data_big.h"
+#include "../../utils/spmv_data_sq_big.h"
 
 //#define OUTPUT_RET
 #define SEED 13
@@ -81,8 +80,8 @@ void _kernel_(int tid, int num_threads) {
       int dense = val[j];
       res += sparse * dense;
     }
-    if (res != verify_data[i]) assert(0);
-    compute_exclusive_store(data + i, res);
+    //if (res != verify_data[i]) assert(0);
+    data[i] = res;
   }
 }
 

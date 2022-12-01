@@ -4,6 +4,12 @@
 - EWSD
 - SPMM
 - SPMV
+- BFS (push and pull)
+
+## Implementations
+- `parallel.c`
+- `desc.c`
+- `opendcp.c`:
 
 ## Datasets
 ### SuiteSparse

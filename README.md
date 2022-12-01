@@ -9,7 +9,7 @@
 ## Implementations
 - `parallel.c`
 - `desc.c`
-- `opendcp.c`:
+- `opendcp.c`
 
 ## Datasets
 ### SuiteSparse
